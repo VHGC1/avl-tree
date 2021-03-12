@@ -5,77 +5,60 @@
 # include "avl-tree.h"
 
 /* Funcao que inicia a arvore */
-void criaGalhoNulo(arv**raiz)
-{ /* Inicio da funcao*/
+void criaGalhoNulo(arv**raiz){ /* Inicio da funcao*/
   *raiz = NULL;  /* Inicia raiz como nula */
-}/* Final da funcao */
+}
     
 /* Funcao que aloca nos na arvore */
-void galho(arv**raiz, int elemento)
-{/* Inicio da funcao */
+void galho(arv**raiz, int elemento){
   *raiz = (arv*)malloc(sizeof(arv)); /* Cria dinamicamente o no */
   (*raiz)->num = elemento; /* (*raiz)->num recebe elemento */
   (*raiz)->esq = NULL; /* Ponteiro da esquerda recebe NULL */
   (*raiz)->dir = NULL; /* Ponteiro da direita recebe NULL */
-} /* Final da funcao */
+} 
 
 /* funcao que insere os elementos */
-void insereElemento(arv**raiz, int elemento)
-{/* Inicio da funcao */
-     if(*raiz == NULL) /* Se a raiz for nula*/
-     {
-       galho(&*raiz, elemento); /* Insere na raiz */
-     }else /* senao */
-     {
-       if((*raiz)->num > elemento) /* se raiz maior que elemento */
-       {
-         insereElemento(&(*raiz)->esq,elemento); /* insere ba esquerda */
-         /*se o fator de balanceamanto for < -1 ou > 1 */
-         if(balanceamento(*raiz) < -1 || balanceamento(*raiz) > 1)
-         {
-           /*se o elemento for menor que raiz esquerda */
-           if(elemento < (*raiz)->esq->num)
-           {
-             aviso(); /*Mostra um aviso na tela*/
-             /*Realiza a rotacao para direita*/
-             *raiz = rotacaoDireita(*raiz); return;
-           }else /*Senao*/
-           {
-             aviso1(); /*Mostra um aviso na tela*/
-             /*Realiza a rotacao dupla para esquerda */
-             *raiz = duplaEsquerda(*raiz); return;
+void insereElemento(arv**raiz, int elemento){
+  if(*raiz == NULL) { /* Se a raiz for nula*/
+    galho(&*raiz, elemento); /* Insere na raiz */
+  }else { 
+  if((*raiz)->num > elemento){  /* se raiz maior que elemento */
+    insereElemento(&(*raiz)->esq,elemento); /* insere na esquerda */
+    if(balanceamento(*raiz) < -1 || balanceamento(*raiz) > 1){/*se o fator de balanceamanto for < -1 ou > 1 */
+      if(elemento < (*raiz)->esq->num){/*se o elemento for menor que raiz esquerda */
+        aviso(); 
+        *raiz = rotacaoDireita(*raiz); /*Realiza a rotacao para direita*/
+        return;
+      }else {
+        aviso1();
+        *raiz = duplaEsquerda(*raiz); /*Realiza a rotacao dupla para esquerda */
+        return;
+      }
+    }
+  }
+       
+       if((*raiz)->num < elemento){ /* Se o raiz for maior que o elemento */
+         insereElemento(&(*raiz)->dir,elemento); /*insere o elemento na direita da arvore */
+         
+         if(balanceamento(*raiz) < -1 || balanceamento(*raiz) > 1){ 
+           
+           if(elemento > (*raiz)->dir->num){ /* Se o elemento for maior que a raiz direita */
+             aviso2(); 
+             *raiz = rotacaoEsquerda(*raiz); /* Realiza a rotacao para esquerda */
+             return; 
+           }else {
+             aviso3();
+             *raiz = duplaDireita(*raiz); /*Realiza a rotcao dupla para direita*/
+             return;
            }
          }
        }
-       /* Se o raiz for maior que o elemento */
-       if((*raiz)->num < elemento)
-       {
-         /*insere o elemento na direita da arvore */
-         insereElemento(&(*raiz)->dir,elemento);
-         /*se o fator de balanceamanto for < -1 ou > 1 */
-         if(balanceamento(*raiz) < -1 || balanceamento(*raiz) > 1)
-         {
-           /* Se o elemento for maior que a raiz direita */
-           if(elemento > (*raiz)->dir->num)
-           {
-             aviso2(); /*Mostra um aviso na tela*/
-             /* Realiza a rotacao para esquerda */
-             *raiz = rotacaoEsquerda(*raiz); return;
-           }else /* Senao */
-           {
-             aviso3();/*Mostra um aviso na tela*/
-             /*Realiza a rotcao dupla para direita*/
-             *raiz = duplaDireita(*raiz); return;
-           }
-         }
-       }
-       /*Se a raiz for igual ao elemento*/  
-       if((*raiz)->num == elemento)
-       {
+       
+       if((*raiz)->num == elemento){ /*Se a raiz for igual ao elemento*/  
          mensagem();/*Mostra um aviso na tela*/
        }
      } 
-}/* Final da funcao */
+  }
 
 /* Funcao que mostra a arvore na tela */
 void impressao(arv*raiz)
@@ -210,14 +193,14 @@ void excluirElemento(arv**raiz, int elemento)
      {
        /*Envia o numero para a direita da arvore*/
        excluirElemento(&(*raiz)->dir,elemento); 
-       /*Se o numero for apagado a arvore é atualizada e balanceada*/
+       /*Se o numero for apagado a arvore ï¿½ atualizada e balanceada*/
        atualizaEsq(&(*raiz),elemento);
      }
      if((*raiz)->num > elemento) /* Se (*raiz)->num maior que numero*/
      {
       /*Envia o numero para esquerda da arvore*/
        excluirElemento(&(*raiz)->esq,elemento);
-       /*Se o numero for apagado a arvore é atualizada e balanceada*/
+       /*Se o numero for apagado a arvore ï¿½ atualizada e balanceada*/
        atualizaDir(&(*raiz),elemento);
      }         
     }

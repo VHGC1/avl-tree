@@ -1,61 +1,49 @@
 # include <stdio.h>
 # include "avl-tree.c"
 
-main(){ /*funcao principal*/
+main(){
  
- int num, nnum; /*declarando variaveis do tipo inteiro*/
- FILE *arquivo; /*declarando variavel do tio FILE*/ 
- arv *raiz; /*Declarando variavel do tipo arv*/
+ int num, nnum; 
+ FILE *arquivo; 
+ arv *raiz; 
  
- criaGalhoNulo(&raiz); /*inicializando arvore com NULL*/
- criarArquivo(arquivo); /*criando o arquivo*/
- carregaArquivo(&raiz); /*carrendo dados salvos no arquivo*/
+ criaGalhoNulo(&raiz); 
+ criarArquivo(arquivo);
+ carregaArquivo(&raiz);
  
- while(num!=6){ /*enquanto num for diferente de 6*/
-  cor(1); /*colorindo o texto*/
+ while(num!=6){ 
+  cor(1); 
  
-  menu(&num); /*chama um menu e uma opcao de escolha*/
+  menu(&num); 
  
-  switch(num){/*compara o valor de num com os casos*/
-   /*caso 1*/
-    case 1:
-         lerNumero(&nnum);/*ler um numero inteiro*/
-         insereElemento(&raiz,nnum); /*insere o numero na arvore*/
-         EscreverArquivo(arquivo,nnum); /*escreve o numero no arquivo*/
-         printf("\ni = %d\n",nnum);/*imprime uma mensagem*/
-         impressao(raiz);/*imprime a arvore*/
-         break; /*Termina o caso*/
-    /*caso 2*/
-    case 2:
-         /*imprime a arvore*/
-         impressao(raiz);
-         break; /*Termina o caso*/
-    /*caso 3*/
-    case 3:
-         /*ler um numero*/
-         lerNumero(&nnum);
-         /*imprime uma mesagem colorida na tela*/
-         cor(10);printf("\n b = ");
-         busca(raiz,nnum);/*Busca o numero na arvore*/
-         break;/*Termina o caso*/
-    /*caoso 4*/
-    case 4:
-         /*Ler um numero*/
-         lerNumero(&nnum);
-         /*exclui o numero se encontra->lo na arvore*/
-         excluirElemento(&raiz,nnum);
-         /*Atualiza o arquivo*/
-         salva(raiz);
-         /*imprime a arvore*/
-         impressao(raiz);
-         break; /*Termina o caso*/
-    /*caso 5*/
-    case 5:
-         /*Abre o arquivo de texto*/
-         system("avl.txt");
-         break;/*Termina o caso*/
+  switch(num){ 
+		case 1:
+			lerNumero(&nnum);
+			insereElemento(&raiz,nnum); 
+			EscreverArquivo(arquivo,nnum);
+			printf("\ni = %d\n",nnum);
+			impressao(raiz);
+			break; 
+		case 2:
+			impressao(raiz);
+			break; 
+		case 3:
+			lerNumero(&nnum);
+			cor(10);printf("\n b = ");
+			busca(raiz,nnum);
+			break;
+		case 4:
+			
+			lerNumero(&nnum);
+			excluirElemento(&raiz,nnum);
+			salva(raiz);
+			impressao(raiz);
+			break; 
+		case 5:
+			system("avl.txt");
+			break;
   }
-   getch();/*espera a usuario clicar em qualque tecla para finalizar*/
-   system("cls");/*limpa as imagems antes dessa opcao na tela*/
+   getch();
+   system("cls");
  }
 }
