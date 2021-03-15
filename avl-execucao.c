@@ -1,8 +1,8 @@
 # include <stdio.h>
 # include "avl-tree.c"
 
+
 main(){
- 
  int num, nnum; 
  FILE *arquivo; 
  arv *raiz; 
@@ -10,8 +10,9 @@ main(){
  criaGalhoNulo(&raiz); 
  criarArquivo(arquivo);
  carregaArquivo(&raiz);
+
  
- while(num!=6){ 
+ while(num!=9){ 
   cor(1); 
  
   menu(&num); 
@@ -33,7 +34,6 @@ main(){
 			busca(raiz,nnum);
 			break;
 		case 4:
-			
 			lerNumero(&nnum);
 			excluirElemento(&raiz,nnum);
 			salva(raiz);
@@ -42,6 +42,9 @@ main(){
 		case 5:
 			system("avl.txt");
 			break;
+		case 6:
+			printf("%d", quantFolhas(raiz));	
+			break;	
   }
    getch();
    system("cls");

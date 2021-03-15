@@ -1,4 +1,4 @@
-/* Struct que dá base à arvore binária */
+/* Struct que dï¿½ base ï¿½ arvore binï¿½ria */
 struct arv
 {
   int num;          /* Elemento do tipo inteiro */
@@ -9,7 +9,7 @@ struct arv
 typedef struct arv arv;     
 
 /***********************************
-**  Protótipos das funcoes  **
+**  Protï¿½tipos das funcoes  **
 ************************************/
 
 /***********************************
@@ -21,12 +21,12 @@ arv** menorDireito(arv*raiz); /* Retorna o menor elemento da direita */
 arv** maiorEsquerdo(arv*raiz);/* Retorna o maior elemento da esquerda */
 void criaGalhoNulo(arv**raiz); /* Inicia a arvore */
 void busca(arv*raiz, int elemento); /* Busca elementos na arvore */
-void galho(arv**raiz, int elemento); /* Aloca novos nós na arvore */
+void galho(arv**raiz, int elemento); /* Aloca novos nï¿½s na arvore */
 void insereElemento(arv**raiz, int elemento); /* Insere elementos na arvore */
 void excluirElemento(arv**raiz, int elemento);/* Exclui elementos da arvore */
 
 /************************************************
-**  Funcoes que transformam uma arvore binária em AVL  **
+**  Funcoes que transformam uma arvore binï¿½ria em AVL  **
 *************************************************/
 
 int contEsq(arv*raiz); /* Retorna a altura esquerda da arvore */
@@ -63,3 +63,11 @@ int carregaArquivo(arv**raiz); /* Carrega os elementos anteriores gravados */
 void criarArquivo(FILE* arquivo); /* Criacao do arquivo */
 void grava(arv*raiz, FILE* arquivo);
 void EscreverArquivo(FILE* arquivo, int elemento);/*Escreve no arquivo */
+
+/******************************************************
+ ***************FunÃ§Ãµes Trabalho 1*********************
+ ******************************************************/
+
+int quantFolhas(arv*raiz);
+int quantNo(arv*raiz);
+int noPrimo(arv*raiz);

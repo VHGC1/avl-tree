@@ -4,6 +4,29 @@
 # include <conio.h>
 # include "avl-tree.h"
 
+
+int quantFolhas(arv*raiz){
+  if(raiz == NULL){
+    return 0;
+  }else{
+    if(raiz->esq == raiz->dir){
+      return 1;
+    }else{
+      return quantFolhas(raiz->esq) + quantFolhas(raiz->dir);
+    }
+  }
+}
+
+
+int quantNo(arv*raiz){
+
+}
+
+int noPrimo(arv*raiz){
+
+  
+}
+
 /* Funcao que inicia a arvore */
 void criaGalhoNulo(arv**raiz){ /* Inicio da funcao*/
   *raiz = NULL;  /* Inicia raiz como nula */
@@ -37,35 +60,32 @@ void insereElemento(arv**raiz, int elemento){
     }
   }
        
-       if((*raiz)->num < elemento){ /* Se o raiz for maior que o elemento */
-         insereElemento(&(*raiz)->dir,elemento); /*insere o elemento na direita da arvore */
-         
-         if(balanceamento(*raiz) < -1 || balanceamento(*raiz) > 1){ 
-           
-           if(elemento > (*raiz)->dir->num){ /* Se o elemento for maior que a raiz direita */
-             aviso2(); 
-             *raiz = rotacaoEsquerda(*raiz); /* Realiza a rotacao para esquerda */
-             return; 
-           }else {
-             aviso3();
-             *raiz = duplaDireita(*raiz); /*Realiza a rotcao dupla para direita*/
-             return;
-           }
-         }
-       }
-       
-       if((*raiz)->num == elemento){ /*Se a raiz for igual ao elemento*/  
-         mensagem();/*Mostra um aviso na tela*/
-       }
-     } 
+  if((*raiz)->num < elemento){ /* Se o raiz for maior que o elemento */
+    insereElemento(&(*raiz)->dir,elemento); /*insere o elemento na direita da arvore */
+    
+    if(balanceamento(*raiz) < -1 || balanceamento(*raiz) > 1){    
+      if(elemento > (*raiz)->dir->num){ /* Se o elemento for maior que a raiz direita */
+        aviso2(); 
+        *raiz = rotacaoEsquerda(*raiz); /* Realiza a rotacao para esquerda */
+        return; 
+      }else {
+        aviso3();
+        *raiz = duplaDireita(*raiz); /*Realiza a rotcao dupla para direita*/
+        return;
+      }
+    }
   }
+       
+    if((*raiz)->num == elemento){ /*Se a raiz for igual ao elemento*/  
+      mensagem();/*Mostra um aviso na tela*/
+    }
+  } 
+}
 
 /* Funcao que mostra a arvore na tela */
-void impressao(arv*raiz)
-{/* Inicio da funcao*/
+void impressao(arv*raiz){/* Inicio da funcao*/
   /* Se a raiz for diferente de NULL*/
-  if(raiz!=NULL)
-  {
+  if(raiz!=NULL){
    printf("(");
    printf("%d",(raiz)->num); /*Imprime  a raiz*/
    printf(",(");
@@ -76,7 +96,6 @@ void impressao(arv*raiz)
    impressao(raiz->dir);
    printf(")");
    printf(")");
-   
   }
 }/*Final da funcao */
 
@@ -433,24 +452,32 @@ void mensagem()
 }
 
 /* Mostra um menu de opcoes na tela */
-void menu(int *op)
-{
-     /*Mostra um menu colorido na tela*/
-cor(11);posicao(25,1),linha(1,201);linha(30,205);linha(1,187);
-posicao(25,2);printf("\272 1: INSERIR VALORES \t\t\272");
-posicao(25,3);linha(1,204);linha(30,205);linha(1,185);
-posicao(25,4);printf("\272 2: VISUALIZAR    \t\t\272");
-posicao(25,5);linha(1,204);linha(30,205);linha(1,185);
-posicao(25,6);printf("\272 3: BUSCAR ELEMENTO\t\t\272");
-posicao(25,7);linha(1,204);linha(30,205);linha(1,185);
-posicao(25,8);printf("\272 4: EXCLUIR ELEMENTO \t\t\272");
-posicao(25,9);linha(1,204);linha(30,205);linha(1,185);
-posicao(25,10);printf("\272 5: ABRIR O ARQUIVO DE TEXTO\t\272");
-posicao(25,11);linha(1,204);linha(30,205);linha(1,185);
-posicao(25,12);printf("\272 6: Sair      \t\t\272");
-posicao(25,13);linha(1,200);linha(30,205);linha(1,188);
-posicao(25,16);cor(10);printf("Digitar Op\x87\xc6o: ");
-scanf("%d",op);
+void menu(int *op){ /*Mostra um menu colorido na tela*/ 
+  cor(11);posicao(25,1),linha(1,201);linha(30,205);linha(1,187);
+  posicao(25,2);printf("\272 1: INSERIR VALORES \t\t\272");
+  posicao(25,3);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,4);printf("\272 2: VISUALIZAR    \t\t\272");
+  posicao(25,5);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,6);printf("\272 3: BUSCAR ELEMENTO\t\t\272");
+  posicao(25,7);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,8);printf("\272 4: EXCLUIR ELEMENTO \t\t\272");
+  posicao(25,9);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,10);printf("\272 5: ABRIR O ARQUIVO DE TEXTO\t\272");
+
+  posicao(25,11);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,12);printf("\272 6: QUANTIDADE DE FOLHAS\t\272");
+
+  posicao(25,13);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,14);printf("\272 7: QUANTIDADE DE NOS \t\272");
+
+  posicao(25,15);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,16);printf("\272 8: QUANT. DE NOS PRIMOS\t\272");
+
+  posicao(25,17);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,18);printf("\272 9: Sair      \t\t\272");
+  posicao(25,19);linha(1,200);linha(30,205);linha(1,188);
+  //posicao(25,16);cor(10);printf("Digitar Op\x87\xc6o: ");
+  scanf("%d",op);
 }
 
 /*Funcao  que decide a cor de fundo ou de texto */
