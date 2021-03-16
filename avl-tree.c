@@ -24,8 +24,21 @@ int quantNo(arv*raiz){
 }
 
 int noPrimo(arv*raiz){
-
+  //int res, count = 0;
   
+  //if (raiz != NULL){
+    //return (raiz)->num;
+   /* for(int i = 2; i <= (raiz)->num; i++){
+      if((raiz)->num % i == 0){
+        res++;
+        break;
+      }if(res == 0){
+        return count;
+      }
+    }  
+    //return noPrimo(raiz->dir) +  noPrimo(raiz->esq) + 1;  
+  }*/
+  //(raiz)->num)
 }
 
 /* Funcao que inicia a arvore */
@@ -483,6 +496,7 @@ void menu(int *op){ /*Mostra um menu colorido na tela*/
   posicao(25,18);printf("\272 9: Sair      \t\t\272");
   posicao(25,19);linha(1,200);linha(30,205);linha(1,188);
   
+  posicao(25,22);cor(10);printf("Digitar Op\x87\xc6o: ");
   scanf("%d",op);
 }
 

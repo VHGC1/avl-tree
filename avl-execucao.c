@@ -46,7 +46,11 @@ main(){
 			printf("%d", quantFolhas(raiz));	
 			break;
 		case 7:
-			printf("%d", quantNo(raiz));
+			printf("Numero de nos: %d", quantNo(raiz));
+			break;
+		case 8:
+			//printf("%d", noPrimo(raiz));
+			noPrimo(raiz);
 			break;
   }
    getch();
