@@ -44,7 +44,10 @@ main(){
 			break;
 		case 6:
 			printf("%d", quantFolhas(raiz));	
-			break;	
+			break;
+		case 7:
+			printf("%d", quantNo(raiz));
+			break;
   }
    getch();
    system("cls");

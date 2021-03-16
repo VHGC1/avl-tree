@@ -17,9 +17,10 @@ int quantFolhas(arv*raiz){
   }
 }
 
-
 int quantNo(arv*raiz){
-
+  if (raiz != NULL){
+    return quantNo(raiz->dir) +  quantNo(raiz->esq) + 1;  
+  }
 }
 
 int noPrimo(arv*raiz){
@@ -453,14 +454,19 @@ void mensagem()
 
 /* Mostra um menu de opcoes na tela */
 void menu(int *op){ /*Mostra um menu colorido na tela*/ 
+  
   cor(11);posicao(25,1),linha(1,201);linha(30,205);linha(1,187);
   posicao(25,2);printf("\272 1: INSERIR VALORES \t\t\272");
+  
   posicao(25,3);linha(1,204);linha(30,205);linha(1,185);
   posicao(25,4);printf("\272 2: VISUALIZAR    \t\t\272");
+  
   posicao(25,5);linha(1,204);linha(30,205);linha(1,185);
   posicao(25,6);printf("\272 3: BUSCAR ELEMENTO\t\t\272");
+  
   posicao(25,7);linha(1,204);linha(30,205);linha(1,185);
   posicao(25,8);printf("\272 4: EXCLUIR ELEMENTO \t\t\272");
+  
   posicao(25,9);linha(1,204);linha(30,205);linha(1,185);
   posicao(25,10);printf("\272 5: ABRIR O ARQUIVO DE TEXTO\t\272");
 
@@ -476,7 +482,7 @@ void menu(int *op){ /*Mostra um menu colorido na tela*/
   posicao(25,17);linha(1,204);linha(30,205);linha(1,185);
   posicao(25,18);printf("\272 9: Sair      \t\t\272");
   posicao(25,19);linha(1,200);linha(30,205);linha(1,188);
-  //posicao(25,16);cor(10);printf("Digitar Op\x87\xc6o: ");
+  
   scanf("%d",op);
 }
 
