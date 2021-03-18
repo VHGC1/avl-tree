@@ -25,7 +25,7 @@ int quantNo(arv*raiz){
 
 int noPrimo(arv*raiz){
   int res = 0;
-  
+  int count = 0;
   if (raiz != NULL){
     for(int i = 2; i <= raiz->num/2; i++){
       if(raiz->num % i == 0){
@@ -35,7 +35,8 @@ int noPrimo(arv*raiz){
     if(res == 0){
       printf("%d primo\n", raiz->num);
 
-      noPrimo(raiz->esq) + noPrimo(raiz->esq);
+      count = 1 + noPrimo(raiz->esq) + noPrimo(raiz->dir);
+      printf("%d\n", count);
     }else{
       noPrimo(raiz->esq);
     }
