@@ -49,7 +49,6 @@ main(){
 			printf("Numero de nos: %d", quantNo(raiz));
 			break;
 		case 8:
-			//printf("%d", noPrimo(raiz));
 			noPrimo(raiz);
 			break;
   }

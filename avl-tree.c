@@ -24,21 +24,23 @@ int quantNo(arv*raiz){
 }
 
 int noPrimo(arv*raiz){
-  //int res, count = 0;
+  int res = 0;
   
-  //if (raiz != NULL){
-    //return (raiz)->num;
-   /* for(int i = 2; i <= (raiz)->num; i++){
-      if((raiz)->num % i == 0){
+  if (raiz != NULL){
+    for(int i = 2; i <= raiz->num/2; i++){
+      if(raiz->num % i == 0){
         res++;
-        break;
-      }if(res == 0){
-        return count;
       }
-    }  
-    //return noPrimo(raiz->dir) +  noPrimo(raiz->esq) + 1;  
-  }*/
-  //(raiz)->num)
+    }
+    if(res == 0){
+      printf("%d primo\n", raiz->num);
+
+      noPrimo(raiz->esq) + noPrimo(raiz->esq);
+    }else{
+      noPrimo(raiz->esq);
+    }
+    noPrimo(raiz->dir);
+  }
 }
 
 /* Funcao que inicia a arvore */
@@ -178,8 +180,7 @@ void busca(arv *raiz, int elemento)
       }
     }
     /* Senao */
-  }else
-  {
+  }else{
     /* Imprime uma mensagem na tela */
     cor(11); posicao(25,1),linha(1,201);linha(30,205),linha(1,187);
     posicao(25,2);printf("\272 Numero n\xc6o encontrado!!\t\272");
@@ -487,10 +488,10 @@ void menu(int *op){ /*Mostra um menu colorido na tela*/
   posicao(25,12);printf("\272 6: QUANTIDADE DE FOLHAS\t\272");
 
   posicao(25,13);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,14);printf("\272 7: QUANTIDADE DE NOS \t\272");
+  posicao(25,14);printf("\272 7: QUANTIDADE DE NODOS \t\272");
 
   posicao(25,15);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,16);printf("\272 8: QUANT. DE NOS PRIMOS\t\272");
+  posicao(25,16);printf("\272 8: QUANT. DE NODOS PRIMOS\t\272");
 
   posicao(25,17);linha(1,204);linha(30,205);linha(1,185);
   posicao(25,18);printf("\272 9: Sair      \t\t\272");
