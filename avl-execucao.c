@@ -51,7 +51,6 @@ main(){
 			printf("Numero de nos: %d", quantNo(raiz));
 			break;
 		case 8:
-			printf("lal %d", quantNo(raiz));
 			noPrimo(raiz);
 			break;
 		case 9:

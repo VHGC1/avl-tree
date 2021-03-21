@@ -521,34 +521,38 @@ void menu(int *op){ /*Mostra um menu colorido na tela*/
 
   posicao(25,15);linha(1,204);linha(30,205);linha(1,185);
   posicao(25,16);printf("\272 8: QUANT. DE NODOS PRIMOS\t\272");
-
   posicao(25,17);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,18);printf("\272 9: COMPARAR ARVORES\t\t\272");
-  posicao(25,19);linha(1,200);linha(30,205);linha(1,188);
 
+  posicao(25,15);linha(1,204);linha(30,205);linha(1,185);
+  posicao(25,16);printf("\272 8: QUANT. DE NODOS PRIMOS\t\272");
+  posicao(25,17);linha(1,200);linha(30,205);linha(1,188);
+
+/*  posicao(25,18);printf("\272 9: COMPARAR ARVORES\t\t\272");
+  posicao(25,19);linha(1,200);linha(30,205);linha(1,188);
+*/
   posicao(56,1),linha(1,201);linha(30,205);linha(1,187);
-  posicao(56,2);printf("\272 10: COPIAR ARVORE\t\t\272");
+  posicao(56,2);printf("\272 9: COMPARAR ARVORES\t\t\272");
   
   posicao(56,3);linha(1,204);linha(30,205);linha(1,185);
-  posicao(56,4);printf("\272 11: LISTA       \t\t\272");
+  posicao(56,4);printf("\272 10: COPIAR ARVORE \t\t\272");
   
   posicao(56,5);linha(1,204);linha(30,205);linha(1,185);
-  posicao(56,6);printf("\272 12: ALTURA      \t\t\272");
+  posicao(56,6);printf("\272 11: LISTA      \t\t\272");
   
   posicao(56,7);linha(1,204);linha(30,205);linha(1,185);
-  posicao(56,8);printf("\272 13: INORDER     \t\t\272");
+  posicao(56,8);printf("\272 12: ALTURA      \t\t\272");
 
   posicao(56,9);linha(1,204);linha(30,205);linha(1,185);
-  posicao(56,10);printf("\272 14: PREORDER   \t\t\272");
+  posicao(56,10);printf("\272 13: INORDER   \t\t\272");
 
   posicao(56,11);linha(1,204);linha(30,205);linha(1,185);
-  posicao(56,12);printf("\272 15: POSTORDER   \t\t\272");
+  posicao(56,12);printf("\272 14: PREORDER   \t\t\272");
 
   posicao(56,13);linha(1,204);linha(30,205);linha(1,185);
-  posicao(56,14);printf("\272 16: SAIR         \t\t\272");
+  posicao(56,14);printf("\272 15: POSTORDER    \t\t\272");
 
   posicao(56,15);linha(1,204);linha(30,205);linha(1,185);
-  posicao(56,16);printf("\272 18: Sair        \t\t\272");
+  posicao(56,16);printf("\272 16: SAIR         \t\t\272");
   posicao(56,17);linha(1,200);linha(30,205);linha(1,188);
   
   
