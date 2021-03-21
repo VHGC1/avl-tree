@@ -45,13 +45,13 @@ int noPrimo(arv*raiz){
   }
 }
 
-int compara(arv*raiz1, arv*raiz2){
+int comparar(arv*raiz1, arv*raiz2){
   if(raiz1 == NULL && raiz2 == NULL){
     printf("São iguais!");
   }if(raiz1 == NULL || raiz2 == NULL){
     printf("São diferentes");
   }if(raiz1->num == raiz2->num){
-    return compara(raiz1->esq, raiz2->esq) && compara(raiz1->dir, raiz2->dir);
+    return comparar(raiz1->esq, raiz2->esq) && comparar(raiz1->dir, raiz2->dir);
   }
   return 0;
 } 

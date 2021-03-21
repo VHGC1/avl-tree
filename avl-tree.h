@@ -76,7 +76,7 @@ int quantFolhas(arv*raiz);
 int quantNo(arv*raiz);
 int noPrimo(arv*raiz);
 
-int compara(arv*raiz1, arv*raiz2);
+int comparar(arv*raiz1, arv*raiz2);
 arv *copiar(arv*raiz);
 
 /*
