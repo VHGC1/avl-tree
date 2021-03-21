@@ -1,6 +1,5 @@
 /* Struct que d� base � arvore bin�ria */
-struct arv
-{
+struct arv{
   int num;          /* Elemento do tipo inteiro */
   struct arv *esq;  /* Ponteiro para acessar os elemento a esquerda da raiz */
   struct arv *dir; /* Ponteiro para acessar os elementos a direita da raiz */
@@ -68,6 +67,26 @@ void EscreverArquivo(FILE* arquivo, int elemento);/*Escreve no arquivo */
  ***************Funções Trabalho 1*********************
  ******************************************************/
 
+struct pilha{
+  arv* elemento;
+  struct pilha *ant;
+};
+
 int quantFolhas(arv*raiz);
 int quantNo(arv*raiz);
 int noPrimo(arv*raiz);
+
+int compara(arv*raiz1, arv*raiz2);
+arv *copiar(arv*raiz);
+
+/*
+int lista();
+int altura();
+int altura();
+int inOrder();
+int preOrder();
+int postOrder();
+*/
+
+
+
