@@ -24,9 +24,11 @@ int quantNo(arv*raiz){
   }
 }
 
+int count = 0;
+
 int noPrimo(arv*raiz){
   int res = 0;
-  int count = 0;
+
   if (raiz != NULL){
     for(int i = 2; i <= raiz->num/2; i++){
       if(raiz->num % i == 0){
@@ -35,14 +37,16 @@ int noPrimo(arv*raiz){
     }
     if(res == 0){
       printf("%d primo\n", raiz->num);
+      
+      count += 1;
 
-      count = 1 + noPrimo(raiz->esq) + noPrimo(raiz->dir);
       printf("%d\n", count);
     }else{
       noPrimo(raiz->esq);
     }
     noPrimo(raiz->dir);
   }
+  
 }
 
 int comparar(arv*raiz1, arv*raiz2){
@@ -499,37 +503,34 @@ void mensagem()
 void menu(int *op){ /*Mostra um menu colorido na tela*/ 
   
   cor(11);posicao(25,1),linha(1,201);linha(30,205);linha(1,187);
-  posicao(25,2);printf("\272 1: INSERIR VALORES \t\t\272");
+  posicao(25,2);printf("\272 1: INSERIR VALORES");
   
   posicao(25,3);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,4);printf("\272 2: VISUALIZAR    \t\t\272");
+  posicao(25,4);printf("\272 2: VISUALIZAR ");
   
   posicao(25,5);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,6);printf("\272 3: BUSCAR ELEMENTO\t\t\272");
+  posicao(25,6);printf("\272 3: BUSCAR ELEMENTO");
   
   posicao(25,7);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,8);printf("\272 4: EXCLUIR ELEMENTO \t\t\272");
+  posicao(25,8);printf("\272 4: EXCLUIR ELEMENTO");
 
   posicao(25,9);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,10);printf("\272 5: ABRIR O ARQUIVO DE TEXTO\t\272");
+  posicao(25,10);printf("\272 5: ABRIR O ARQUIVO DE TEXTO");
 
   posicao(25,11);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,12);printf("\272 6: QUANTIDADE DE FOLHAS\t\272");
+  posicao(25,12);printf("\272 6: QUANTIDADE DE FOLHAS");
 
   posicao(25,13);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,14);printf("\272 7: QUANTIDADE DE NODOS \t\272");
+  posicao(25,14);printf("\272 7: QUANTIDADE DE NODOS ");
 
   posicao(25,15);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,16);printf("\272 8: QUANT. DE NODOS PRIMOS\t\272");
+  posicao(25,16);printf("\272 8: QUANT. DE NODOS PRIMOS");
   posicao(25,17);linha(1,204);linha(30,205);linha(1,185);
 
   posicao(25,15);linha(1,204);linha(30,205);linha(1,185);
-  posicao(25,16);printf("\272 8: QUANT. DE NODOS PRIMOS\t\272");
+  posicao(25,16);printf("\272 8: QUANT. DE NODOS PRIMOS");
   posicao(25,17);linha(1,200);linha(30,205);linha(1,188);
 
-/*  posicao(25,18);printf("\272 9: COMPARAR ARVORES\t\t\272");
-  posicao(25,19);linha(1,200);linha(30,205);linha(1,188);
-*/
   posicao(56,1),linha(1,201);linha(30,205);linha(1,187);
   posicao(56,2);printf("\272 9: COMPARAR ARVORES\t\t\272");
   
